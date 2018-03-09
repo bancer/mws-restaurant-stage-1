@@ -5,5 +5,5 @@ install:
     - npm install csslint
 
 script:
-    - npm run eslint
-    - npm run csslint
+    - npm run eslint ./
+    - npm run csslint ./
