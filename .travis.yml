@@ -1,0 +1,11 @@
+sudo: required
+dist: trusty
+language: node_js
+node_js:
+  - "7"
+install:
+    - npm install -g eslint
+    - npm install -g csslint
+script:
+    - npm run eslint
+    - npm run csslint
