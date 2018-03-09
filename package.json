@@ -4,8 +4,8 @@
   "description": "Restaurant reviews site",
   "main": "index.js",
   "scripts": {
-    "eslint": "npm run eslint",
-    "csslint": "npm run csslint",
+    "eslint": "eslint ./",
+    "csslint": "csslint ./",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
