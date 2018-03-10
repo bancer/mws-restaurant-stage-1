@@ -1,3 +1,9 @@
 {
-  "extends": "stylelint-config-standard"
+  "extends": "stylelint-config-standard",
+  "rules": {
+    "font-family-name-quotes": "always-where-recommended",
+    "max-empty-lines": 2,
+    "no-descending-specificity": null,
+    "string-quotes": "double"
+  }
 }
