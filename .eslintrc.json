@@ -15,11 +15,17 @@
     "guard-for-in": "error",
     "indent": ["error", 2],
     "no-array-constructor": "error",
+    "no-console": "warn",
     "no-extra-parens": "error",
     "no-multi-str": "error",
     "no-new-object": "error",
     "no-new-wrappers": "error",
     "no-trailing-spaces": "error",
+    "no-unused-vars": ["error", {
+      "args": "none",
+      "vars": "local",
+      "varsIgnorePattern": "cuisines|DBHelper|markers|map|neighborhoods|restaurant"
+    }],
     "no-var": "error",
     "object-curly-newline": ["error", { "multiline": true }],
     "quotes": ["error", "single"],
@@ -27,6 +33,10 @@
     "valid-jsdoc": "error"
   },
   "globals": {
-    "google.maps.Marker": false
+    "DBHelper": true,
+    "google": false,
+    "initMap": true,
+    "map": true,
+    "restaurant": true
   }
 }
