@@ -1,8 +1,8 @@
 let restaurants,
   neighborhoods,
   cuisines;
-var map;
-var markers = [];
+let map;
+let markers = [];
 
 /**
  * Fetch neighborhoods and cuisines as soon as the page is loaded.
@@ -87,7 +87,7 @@ window.initMap = () => {
     lat: 40.722216,
     lng: -73.987501
   };
-  self.map = new google.maps.Map(document.getElementById('map'), {
+  map = new google.maps.Map(document.getElementById('map'), {
     zoom: 12,
     center: loc,
     scrollwheel: false
@@ -133,8 +133,8 @@ const resetRestaurants = (restaurants) => {
   ul.innerHTML = '';
 
   // Remove all map markers
-  self.markers.forEach(m => m.setMap(null));
-  self.markers = [];
+  markers.forEach(m => m.setMap(null));
+  markers = [];
   self.restaurants = restaurants;
 };
 
@@ -195,10 +195,10 @@ const createRestaurantHTML = (restaurant) => {
 const addMarkersToMap = (restaurants = self.restaurants) => {
   restaurants.forEach(restaurant => {
     // Add marker to the map
-    const marker = DBHelper.mapMarkerForRestaurant(restaurant, self.map);
+    const marker = DBHelper.mapMarkerForRestaurant(restaurant, map);
     google.maps.event.addListener(marker, 'click', () => {
       window.location.href = marker.url;
     });
-    self.markers.push(marker);
+    markers.push(marker);
   });
 };
