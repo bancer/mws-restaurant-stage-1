@@ -334,7 +334,10 @@ nav h1 a {
 
 
 /* ====================== Responsive grid ====================== */
-.maincontent, .filter-options, .restaurants-list, .reviews-list {
+.maincontent,
+.filter-options,
+.restaurants-list,
+.reviews-list {
   display: flex;
   flex-wrap: wrap;
 }
@@ -346,31 +349,29 @@ nav h1 a {
 }
 
 @media screen and (min-width: 420px) {
-
   .filter-options-container {
     width: 50%;
   }
-
 }
 
 @media screen and (min-width: 700px) {
-
-  .filter-options-container, .filter-options h2 {
+  .filter-options-container,
+  .filter-options h2 {
     width: 33.3%;
   }
-
 }
 
 @media screen and (min-width: 1000px) {
-
-  .restaurants-list li, .reviews-list li {
+  .restaurants-list li,
+  .reviews-list li {
     width: 50%;
   }
-
 }
 
 @media screen and (min-width: 1200px) {
-  header, main, footer {
+  header,
+  main,
+  footer {
     margin-left: auto;
     margin-right: auto;
     width: 1200px;
