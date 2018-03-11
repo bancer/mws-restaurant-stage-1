@@ -3,6 +3,7 @@
 
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css" />
   <link rel="stylesheet" href="css/styles.css">
   <title>Restaurant Reviews</title>
@@ -19,12 +20,14 @@
     <section class="map-container">
       <div id="map" class="map"></div>
     </section>
-    <section>
-      <div class="filter-options">
-        <h2>Filter Results</h2>
+    <section class="filter-options">
+      <h2>Filter Results</h2>
+      <div class="filter-options-container">
         <select id="neighborhoods-select" name="neighborhoods" onchange="updateRestaurants()">
           <option value="all">All Neighborhoods</option>
         </select>
+      </div>
+      <div class="filter-options-container">
         <select id="cuisines-select" name="cuisines" onchange="updateRestaurants()">
           <option value="all">All Cuisines</option>
         </select>
