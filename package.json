@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "eslint": "eslint ./",
-    "csslint": "csslint ./",
+    "csslint": "csslint ./ --exclude-list=node_modules/",
     "stylelint": "stylelint ./css/*.css"
   },
   "repository": {
