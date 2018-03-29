@@ -138,10 +138,12 @@ nav h1 a {
 
 
 /* ====================== Map ====================== */
+.map-container {
+  width: 100%;
+}
 .map {
   background-color: #ccc;
   height: 400px;
-  width: 100%;
 }
 
 
