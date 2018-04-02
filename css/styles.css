@@ -34,6 +34,11 @@ a {
   text-decoration: none;
 }
 
+:focus {
+  background: orange;
+  outline: 3px solid orange;
+}
+
 a:hover,
 a:focus {
   color: #3397db;
@@ -139,6 +144,21 @@ nav h1 a {
   text-decoration: underline;
 }
 
+.skip-link {
+  background: #8f4400;
+  color: white;
+  left: 3px;
+  padding: 8px;
+  position: absolute;
+  top: -40px;
+  z-index: 100;
+}
+
+.skip-link:focus {
+  color: white;
+  top: 3px;
+}
+
 
 /* ====================== Map ====================== */
 .map-container {
@@ -232,7 +252,6 @@ nav h1 a {
 
 .restaurants-list li a {
   background-color: #8f4400;
-  border-bottom: 3px solid #eee;
   color: #fff;
   display: inline-block;
   font-size: 12pt;
