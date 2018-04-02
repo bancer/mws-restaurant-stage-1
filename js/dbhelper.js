@@ -186,6 +186,18 @@ class DBHelper {
   }
 
   /**
+   * Restaurant image URL.
+   *
+   * @param {Object} restaurant Restaurant.
+   * @param {integer} width     Image width.
+   * @returns {string}          Restaurant image URL.
+   */
+  static imageResponsiveUrlForRestaurant(restaurant, width) {
+    const fileParts = restaurant.photograph.split('.');
+    return `/img-responsive/${fileParts[0]}-${width}_x1.${fileParts[1]}`;
+  }
+
+  /**
    * Map marker for a restaurant.
    *
    * @param {Object} restaurant    Restaurant.
