@@ -189,7 +189,7 @@ class DBHelper {
    * Restaurant image URL.
    *
    * @param {Object} restaurant Restaurant.
-   * @paran {integer} width     Image width.
+   * @param {integer} width     Image width.
    * @returns {string}          Restaurant image URL.
    */
   static imageResponsiveUrlForRestaurant(restaurant, width) {

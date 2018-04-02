@@ -69,7 +69,7 @@ const fillRestaurantHTML = (restaurant = self.restaurant) => {
   image.alt = restaurant.name + ' restaurant photo';
 
   const sourceLarge = document.getElementById('img-large');
-  sourceLarge.srcset = DBHelper.imageUrlForRestaurant(restaurant)
+  sourceLarge.srcset = DBHelper.imageUrlForRestaurant(restaurant);
   const sourceMedium = document.getElementById('img-medium');
   sourceMedium.srcset = DBHelper.imageResponsiveUrlForRestaurant(restaurant, 670);
   const sourceSmall = document.getElementById('img-small');
