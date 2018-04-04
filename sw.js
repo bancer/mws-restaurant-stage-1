@@ -4,11 +4,9 @@ const allCaches = [
 ];
 
 self.addEventListener('install', function(event) {
-  // Perform install steps
   event.waitUntil(
     caches.open(staticCacheName)
       .then(function(cache) {
-        console.log('Opened cache');
         const urlsToCache = [
           '/',
           '/css/styles.css',
