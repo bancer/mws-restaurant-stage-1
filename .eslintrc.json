@@ -8,7 +8,7 @@
     "sourceType": "module"
   },
   "rules": {
-    "array-element-newline": ["error", { "multiline": true }],
+    "array-element-newline": ["error",  "always"],
     "camelcase": "error",
     "curly": "error",
     "func-style": ["error", "declaration", { "allowArrowFunctions": true }],
