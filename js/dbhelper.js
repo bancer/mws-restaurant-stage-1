@@ -11,9 +11,8 @@ class DBHelper {
     }
 
     return idb.open('mws-restaurants', 1, function(upgradeDb) {
-      var store = upgradeDb.createObjectStore('restaurants', {
-        keyPath: 'id'
-      });
+      const storeOptions = {keyPath: 'id'};
+      upgradeDb.createObjectStore('restaurants', storeOptions);
     });
   }
 
