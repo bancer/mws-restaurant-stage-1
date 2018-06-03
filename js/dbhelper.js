@@ -3,6 +3,19 @@
  */
 class DBHelper {
 
+  static openDatabase() {
+    // If the browser doesn't support service worker,
+    // we don't care about having a database
+    if (!navigator.serviceWorker) {
+      return Promise.resolve();
+    }
+
+    return idb.open('mws-restaurants', 1, function(upgradeDb) {
+      const storeOptions = {keyPath: 'id'};
+      upgradeDb.createObjectStore('restaurants', storeOptions);
+    });
+  }
+
   /**
    * Database URL.
    * Change this to restaurants.json file location on your server.
@@ -19,19 +32,31 @@ class DBHelper {
    * @returns {void}
    */
   static fetchRestaurants(callback) {
-    let xhr = new XMLHttpRequest();
-    xhr.open('GET', DBHelper.DATABASE_URL);
-    xhr.onload = () => {
-      if (xhr.status === 200) { // Got a success response from server!
-        const json = JSON.parse(xhr.responseText);
-        const restaurants = json;
+    const dbPromise = DBHelper.openDatabase();
+    return dbPromise.then(function(db) {
+      const tx = db.transaction('restaurants');
+      const store = tx.objectStore('restaurants');
+      return store.getAll();
+    }).then(function(restaurants) {
+      if (restaurants.length < 1) {
+        fetch(DBHelper.DATABASE_URL).then(function(response) {
+          return response.json();
+        }).then(function(data) {
+          dbPromise.then(function(db) {
+            const tx = db.transaction('restaurants', 'readwrite');
+            const store = tx.objectStore('restaurants');
+            data.forEach(function(restaurant) {
+              store.put(restaurant);
+            });
+          });
+          callback(null, data);
+        }).catch(function(error) {
+          callback(error, null);
+        });
+      } else {
         callback(null, restaurants);
-      } else { // Oops!. Got an error from server.
-        const error = `Request failed. Returned status of ${xhr.status}`;
-        callback(error, null);
       }
-    };
-    xhr.send();
+    });
   }
 
   /**

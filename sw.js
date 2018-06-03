@@ -36,6 +36,11 @@ self.addEventListener('activate', function(event) {
 });
 
 self.addEventListener('fetch', function(event) {
+  const requestUrl = new URL(event.request.url);
+  if (requestUrl.pathname.startsWith('/restaurants')) {
+    // Do not cache API requests.
+    return fetch(event.request);
+  }
   event.respondWith(
     caches.open(staticCacheName).then(function(cache) {
       return cache.match(event.request).then(function (response) {

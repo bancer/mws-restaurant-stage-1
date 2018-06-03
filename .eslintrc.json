@@ -35,6 +35,7 @@
   "globals": {
     "DBHelper": true,
     "google": false,
+    "idb": true,
     "initMap": true,
     "map": true,
     "restaurant": true
