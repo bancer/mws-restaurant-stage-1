@@ -29,6 +29,7 @@
     "stylelint-config-standard": "^18.2.0"
   },
   "dependencies": {
-    "grunt-responsive-images": "^0.1.6"
+    "grunt-responsive-images": "^0.1.6",
+    "idb": "^2.1.2"
   }
 }
